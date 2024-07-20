@@ -45,25 +45,25 @@ public class TSPDynamicProgramming {
         return minCost;
 	}    
 
-public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+	public static void main(String[] args) {
+        	Scanner scanner = new Scanner(System.in);
 
-        System.out.print("Enter the number of cities: ");
-        int N = scanner.nextInt();
+        	System.out.print("Enter the number of cities: ");
+        	int N = scanner.nextInt();
 
-        int[][] graph = new int[N][N];
+        	int[][] graph = new int[N][N];
 
-        System.out.println("Enter the weighted matrix of the graph:");
-        for (int i = 0; i < N; i++) {
-            for (int j = 0; j < N; j++) {
-                graph[i][j] = scanner.nextInt();
-            }
-        }
+        	System.out.println("Enter the weighted matrix of the graph:");
+        	for (int i = 0; i < N; i++) {
+            		for (int j = 0; j < N; j++) {
+                		graph[i][j] = scanner.nextInt();
+            		}
+        	}
 
-        int minCost = tsp(graph, N);
+        	int minCost = tsp(graph, N);
 
-        System.out.println("Minimum cost to visit all cities: " + minCost);
+        	System.out.println("Minimum cost to visit all cities: " + minCost);
 
-        scanner.close();
-    }
+        	scanner.close();
+    	}
 }
