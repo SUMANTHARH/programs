@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class BellmanFord {
 	
 	// write your code here...
-	private int distances[];
+    private int distances[];
     private int numberOfVertices;
     public static final int MAX_VALUE = 999;
 
@@ -31,7 +31,7 @@ public class BellmanFord {
         }
 
 
-	        for (int sourcenode = 1; sourcenode <= numberOfVertices; sourcenode++) {
+	for (int sourcenode = 1; sourcenode <= numberOfVertices; sourcenode++) {
             for (int destinationnode = 1; destinationnode <= numberOfVertices; destinationnode++) {
                 if (adjacencymatrix[sourcenode][destinationnode] != MAX_VALUE) {
                     if (distances[destinationnode] > distances[sourcenode] + adjacencymatrix[sourcenode][destinationnode]) {
@@ -45,27 +45,27 @@ public class BellmanFord {
         for (int vertex = 1; vertex <= numberOfVertices; vertex++) {
             System.out.println("distance of source  " + source + " to " + vertex + " is " + distances[vertex]);
         }
-	}
+}
 
 
 	
 	
 	
 	
-	public static void main(String...arg) {
-        int numberofvertices = 0;
+public static void main(String...arg) {
+	int numberofvertices = 0;
         int source;
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter the number of vertices");
         numberofvertices = scanner.nextInt();
         int adjacencymatrix[][] = new int[numberofvertices + 1][numberofvertices + 1];
         System.out.println("Enter the adjacency matrix");
-        for (int sourcenode = 1; sourcenode <= numberofvertices; sourcenode++) {
-            for (int destinationnode = 1; destinationnode <= numberofvertices; destinationnode++) {
-                adjacencymatrix[sourcenode][destinationnode] = scanner.nextInt();
-                if (sourcenode == destinationnode) {
-                    adjacencymatrix[sourcenode][destinationnode] = 0;
-                    continue;
+        	for (int sourcenode = 1; sourcenode <= numberofvertices; sourcenode++) {
+            	for (int destinationnode = 1; destinationnode <= numberofvertices; destinationnode++) {
+                	adjacencymatrix[sourcenode][destinationnode] = scanner.nextInt();
+                	if (sourcenode == destinationnode) {
+                    		adjacencymatrix[sourcenode][destinationnode] = 0;
+                    	continue;
                 }
                 if (adjacencymatrix[sourcenode][destinationnode] == 0) {
                     adjacencymatrix[sourcenode][destinationnode] = MAX_VALUE;
