@@ -5,23 +5,19 @@ import java.util.Scanner;
 class TSP {
 	// write your code here...
 	static int N;
-    static int[] finalPath;
-    static boolean[] visited; 
-    static int finalRes = Integer.MAX_VALUE;
-	 static void copyToFinal(int currPath[]) {
-        for (int i = 0; i < N; i++)
+static int[] finalPath;
+static boolean[] visited; 
+static int finalRes = Integer.MAX_VALUE;
+static void copyToFinal(int currPath[]) {
+	for (int i = 0; i < N; i++)
             finalPath[i] = currPath[i];
         finalPath[N] = currPath[0];
-	}
+}
 
 static void TSPRec(int adj[][], int currBound, int currWeight, int level, int currPath[]) {
-        // base case: if we have reached the last node
-        // and the path includes all nodes
         if (level == N) {
-            // check if there is an edge from the last vertex in
-            // path back to the first vertex
             if (adj[currPath[level - 1]][currPath[0]] != 0) {
-                // currRes has the total weight of the path
+                
                 int currRes = currWeight + adj[currPath[level - 1]][currPath[0]];
 
                 // Update final result and final path if current result is better
@@ -31,10 +27,10 @@ static void TSPRec(int adj[][], int currBound, int currWeight, int level, int cu
                 }
             }
             return;
-		}
-	for (int i = 0; i < N; i++) {
+}
+for (int i = 0; i < N; i++) {
             // Consider next vertex if it is not in the current path and there is an edge
-            if (adj[currPath[level - 1]][i] != 0 && !visited[i]) {
+	if (adj[currPath[level - 1]][i] != 0 && !visited[i]) {
                 int temp = currBound;
                 currWeight += adj[currPath[level - 1]][i];
 
@@ -52,7 +48,7 @@ static void TSPRec(int adj[][], int currBound, int currWeight, int level, int cu
 
                     // call TSPRec for the next level
                     TSPRec(adj, currBound, currWeight, level + 1, currPath);
-				}
+	}
 
         currWeight -= adj[currPath[level - 1]][i];
         currBound = temp;
@@ -63,16 +59,16 @@ static void TSPRec(int adj[][], int currBound, int currWeight, int level, int cu
             visited[currPath[j]] = true;
             }
         }
-}// Function to find the minimum edge cost having an end at the vertex i
-    static int firstMin(int adj[][], int i) {
+}
+static int firstMin(int adj[][], int i) {
         int min = Integer.MAX_VALUE;
         for (int k = 0; k < N; k++)
             if (adj[i][k] < min && i != k)
                 min = adj[i][k];
         return min;
-    }
+}
 
-     static int secondMin(int adj[][], int i) {
+static int secondMin(int adj[][], int i) {
         int first = Integer.MAX_VALUE, second = Integer.MAX_VALUE;
         for (int j = 0; j < N; j++) {
             if (i == j)
@@ -85,9 +81,9 @@ static void TSPRec(int adj[][], int currBound, int currWeight, int level, int cu
                 second = adj[i][j];
         }
         return second;
-	 }
+}
 
-	public static void main(String[] args) {
+public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
         System.out.print("No of cities: ");
