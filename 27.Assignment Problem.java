@@ -110,14 +110,4 @@ public class Main {
         System.out.println("Optimal Cost is " + findMinCost(costMatrix, workerIDs));
 	}
 
-
-
-    
-    
-    
-    
-    
-    
-    
-    
 }
