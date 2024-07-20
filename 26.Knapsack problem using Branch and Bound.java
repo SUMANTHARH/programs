@@ -38,15 +38,15 @@ public class KnapsackBranchBound {
             total_weight += items[j].weight;
             profit_bound += items[j].value;
             j++;
-        }
+}
 
 if (j < n) {
             profit_bound += (W - total_weight) * items[j].value / items[j].weight;
-        }
-        return profit_bound;
-    }
+}
+return profit_bound;
+}
 
-    static int knapsack(int W, Item[] items, int n) {
+static int knapsack(int W, Item[] items, int n) {
         PriorityQueue<Node> Q = new PriorityQueue<>(new Comparator<Node>() {
             public int compare(Node o1, Node o2) {
                 return o2.bound - o1.bound;
