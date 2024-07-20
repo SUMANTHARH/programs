@@ -50,7 +50,7 @@ public class HamiltonianCycles {
     }
 
 
-	 private boolean isSafe(int v, int[] path, int pos) {
+     private boolean isSafe(int v, int[] path, int pos) {
         if (graph[path[pos - 1]][v] == 0) {
             return false;
         }
